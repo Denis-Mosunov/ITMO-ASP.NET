@@ -1,0 +1,60 @@
+RouteConfig.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace Lab01.Ex02.WebMVCR1.Models
+{
+    public class ModelClass
+    {
+        public static string ModelHello()
+        {
+            int hour = DateTime.Now.Hour;
+            string Greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+            return Greeting;
+        }
+    }
+}
+
+HomeController.cs
+using Microsoft.AspNetCore.Mvc;
+
+namespace WebMVCR1.Controllers
+{
+    public class HomeController : Controller
+    {
+        public string Index(string hel)
+        {
+            int hour = DateTime.Now.Hour;
+            string Greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+
+            // Добавляем параметр к приветствию, если он был передан
+            if (!string.IsNullOrEmpty(hel))
+            {
+                Greeting += ", " + hel;
+            }
+
+            return Greeting;
+        }
+    }
+}
+
+Program.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace WebMVCR1.Models
+{
+    public class ModelClass
+    {
+        public static string ModelHello()
+        {
+            int hour = DateTime.Now.Hour;
+            string Greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+            return Greeting;
+        }
+    }
+}
